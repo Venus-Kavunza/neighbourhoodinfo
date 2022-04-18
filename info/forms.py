@@ -38,3 +38,10 @@ class NewPostForm(forms.ModelForm):
     class Meta:
         model = Post
         exclude = ('user',)
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['username','email']
