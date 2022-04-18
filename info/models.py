@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 class Profile(models.Model):
@@ -20,4 +22,36 @@ class Profile(models.Model):
     def delete_user(self):
         self.delete()
 
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+
+    if created:
+        Profile.objects.create(user=instance)
+
+
+class Business(models.Model):
+    name = models.CharField(max_length=50)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,default = '')
+    email = models.CharField(max_length=100, default = '')
+    neighbourhood = models.ForeignKey("Neighbourhood",on_delete=models.CASCADE, default='', null=True, blank=True)
+    description = models.TextField( default = '')
+
+
+
+    def __str__(self):
+        return f'{self.name} business'
+
+
+    def save_business(self):
+        self.save()
+
+    def delete_business(self):
+        self.delete()
+
+    @classmethod
+    def hood_biz(cls, id):
+        hoodbiznas = Business.objects.filter(neighbourhood = id)
+        return hoodbiznas
+  
 
