@@ -1,2 +1,3 @@
 virtualni/
 *.pyc
+*settings.py
