@@ -12,3 +12,29 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username','email','password1','password2')
 
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields =['profile_pic', 'bio']
+
+
+class NewHoodForm(forms.ModelForm):
+    class Meta:
+        model = Neighbourhood
+        exclude = ('admin',)
+
+class EditHoodForm(forms.ModelForm):
+    class Meta:
+        model = Neighbourhood
+        exclude = ('admin',)
+
+class NewBizForm(forms.ModelForm):
+    class Meta:
+        model = Business
+        exclude = ('user',)
+
+
+class NewPostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        exclude = ('user',)
