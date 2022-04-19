@@ -1,3 +1,4 @@
 virtualni/
 *.pyc
 *settings.py
+*.env
