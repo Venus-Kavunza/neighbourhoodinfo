@@ -23,10 +23,10 @@ Change My neighborhood when I decide to move out.
 
 Only view details of a single neighborhood.
 ## Site image
-![Site Image]()
+![Site Image](https://github.com/Venus-Kavunza/neighbourhoodinfo/blob/master/static/photos/Screenshot%20from%202022-04-18%2023-48-31.png)
 
 ## Live link
-`https://.herokuapp.com/`
+`https://neighbourhoodinfo.herokuapp.com/`
 ## Installation
 ### Requirements
 * python3.8
